@@ -1,0 +1,20 @@
+body {
+  font-family: "Lobster", cursive;
+  margin: 0;
+  font-size: 28px;
+  color: #209781;
+  background-color: #26282e;
+}
+a:link {
+  color: #209781;
+  text-decoration: none;
+}
+a:visited {
+  color: #209781;
+}
+a:active {
+  color: #209781;
+}
+a:hover {
+  color: #e9b64a;
+}
