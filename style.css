@@ -71,3 +71,15 @@ p {
   filter: brightness(100%);
   transition: all 0.3s ease-in-out;
 }
+button {
+  background-color: inherit;
+  border: none;
+  font-size: 48px;
+  color: #209781;
+  border-radius: 5px;
+  font-family: "Lobster", cursive;
+}
+button:hover {
+  color: #51c8b2;
+  cursor: pointer;
+}

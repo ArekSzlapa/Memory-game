@@ -4,6 +4,7 @@ var Jaskier = "jaskier.png";
 var Iorweth = "iorweth.png";
 var Geralt = "geralt.png";
 var Yen = "yen.png";
+
 var cards = [
   Ciri,
   Geralt,
@@ -19,59 +20,40 @@ var cards = [
   Iorweth,
 ];
 
-var c0 = document.getElementById("c0");
-var c1 = document.getElementById("c1");
-var c2 = document.getElementById("c2");
-var c3 = document.getElementById("c3");
+function shuffle(array) {
+  let currentIndex = array.length,
+    randomIndex;
 
-var c4 = document.getElementById("c4");
-var c5 = document.getElementById("c5");
-var c6 = document.getElementById("c6");
-var c7 = document.getElementById("c7");
+  // While there remain elements to shuffle...
+  while (currentIndex != 0) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
 
-var c8 = document.getElementById("c8");
-var c9 = document.getElementById("c9");
-var c10 = document.getElementById("c10");
-var c11 = document.getElementById("c11");
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
 
-c0.addEventListener("click", function () {
-  revealCard(0);
-});
-c1.addEventListener("click", function () {
-  revealCard(1);
-});
-c2.addEventListener("click", function () {
-  revealCard(2);
-});
-c3.addEventListener("click", function () {
-  revealCard(3);
-});
+  return array;
+}
 
-c4.addEventListener("click", function () {
-  revealCard(4);
-});
-c5.addEventListener("click", function () {
-  revealCard(5);
-});
-c6.addEventListener("click", function () {
-  revealCard(6);
-});
-c7.addEventListener("click", function () {
-  revealCard(7);
-});
+shuffle(cards);
 
-c8.addEventListener("click", function () {
-  revealCard(8);
-});
-c9.addEventListener("click", function () {
-  revealCard(9);
-});
-c10.addEventListener("click", function () {
-  revealCard(10);
-});
-c11.addEventListener("click", function () {
-  revealCard(11);
-});
+var cardsArray = [c0, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11];
+function init() {
+  for (let i = 0; i < cardsArray.length; i++) {
+    cardsArray[i] = document
+      .getElementById(`c${i}`)
+      .addEventListener("click", function () {
+        revealCard(i);
+      });
+  }
+}
+
+init();
 
 var oneVisible = false;
 var turnCounter = 0;
@@ -127,9 +109,9 @@ const hideTwoCards = (nr1, nr2) => {
 const reverseCards = (nr1, nr2) => {
   var rev = "url(img/karta.png)";
   $(`#c${nr1}`).css("background-image", rev);
-  $(`#c${nr2}`).css("background-image", rev);
   $(`#c${nr1}`).addClass("card");
   $(`#c${nr1}`).removeClass("cardActive");
+  $(`#c${nr2}`).css("background-image", rev);
   $(`#c${nr2}`).addClass("card");
   $(`#c${nr2}`).removeClass("cardActive");
   lock = false;
