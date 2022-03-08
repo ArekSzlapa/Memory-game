@@ -59,3 +59,15 @@ p {
   margin-top: 5px;
   letter-spacing: 2px;
 }
+.cardActive {
+  width: 125px;
+  height: 125px;
+  display: inline-block;
+  margin: 3px;
+  background-image: url(img/karta.png);
+  border: 4px solid #e9b64a;
+  border-radius: 4px;
+  cursor: default;
+  filter: brightness(100%);
+  transition: all 0.3s ease-in-out;
+}
