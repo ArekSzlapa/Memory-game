@@ -70,6 +70,7 @@ p {
   cursor: default;
   filter: brightness(100%);
   transition: all 0.3s ease-in-out;
+  pointer-events: none;
 }
 button {
   background-color: inherit;
