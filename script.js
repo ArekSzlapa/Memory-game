@@ -81,6 +81,7 @@ function revealCard(nr) {
 
       if (cards[visibleNum] === cards[nr]) {
         //check for duplicate
+
         setTimeout(function () {
           hideTwoCards(visibleNum, nr);
         }, 750);
@@ -103,7 +104,11 @@ const hideTwoCards = (nr1, nr2) => {
   lock = false;
   pairsLeft--;
   if (pairsLeft === 0) {
-    $(".board").html(`<h1>You win!<br> Done in ${turnCounter} turns!`);
+    $(".board").html(
+      "<h1>You win!<br>Done in " +
+        turnCounter +
+        ' turns</h1><br><button onclick="window.location.reload()">Play again</button>'
+    );
   }
 };
 const reverseCards = (nr1, nr2) => {
